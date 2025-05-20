@@ -1,0 +1,10 @@
+// Entrar en clickhouse
+docker exec -it clickhouse-dbt clickhouse-client
+// Entrar en MariaDB
+docker exec -it mariadb-dbt mariadb -u root -p
+// MANDATOS SQL
+show databases;
+use sakila;
+show tables;
+select * from [TABLE] limit 5;
+// MANDATOS DBT

@@ -1,0 +1,2 @@
+Le faltaba el valor de last_update en la surrogated key, a la mayoría de clases. 
+La clave surrogada se debe suponer única, y la unicidad se consigue con el id, y la última modificación.

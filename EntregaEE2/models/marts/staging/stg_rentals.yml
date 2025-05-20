@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_rental
+    description: >
+      Modelo de staging para los datos de alquileres del sistema Sakila. Este modelo integra información de las tablas rental, inventory y staff, e incluye el cálculo de la duración del alquiler, una clave subrogada y el recuento de alquileres.
+
+    columns:
+      - name: rental_id
+        description: Identificador único del alquiler.
+
+      - name: count_rentals
+        description: Campo auxiliar con valor constante igual a 1 utilizado para calcular el número total de alquileres.
+
+      - name: rental_duration
+        description: Duración del alquiler en días, calculada como la diferencia entre la fecha de alquiler y la de devolución.
+
+      - name: rental_skey
+        description: Clave subrogada generada a partir del identificador del alquiler.

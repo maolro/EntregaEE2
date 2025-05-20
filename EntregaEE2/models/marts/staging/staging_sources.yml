@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: raw_sakila
+    description: "Base de datos raw_sakila"
+    database: clickhouse
+    schema: sakila_dwh
+    tables:
+      - name: address
+      - name: category
+      - name: city
+      - name: country
+      - name: customer
+      - name: film
+      - name: film_category
+      - name: inventory
+      - name: language
+      - name: rental
+      - name: staff
+      - name: store

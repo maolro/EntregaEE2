@@ -1,0 +1,54 @@
+services:
+  jupyter-dbt:
+    container_name: jupyter-dbt
+    image: docker.io/dockeibe/etsiinf-jupydbt:latest
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./EntregaEE2:/home/jovyan/dbt/workspace
+      - ~/.dbt:/home/jovyan/.dbt
+    environment:
+      - JUPYTER_TOKEN=password
+    depends_on:
+      - clickhouse
+      - mariadb
+    networks:
+      - my_network
+
+  clickhouse:
+    container_name: clickhouse-dbt
+    image: clickhouse:latest
+    ports:
+      - "8123:8123"  
+      - "9000:9000"  
+    volumes:
+      - clickhouse_data:/var/lib/clickhouse
+    environment:
+      - CLICKHOUSE_USER=usuario_sak
+      - CLICKHOUSE_PASSWORD=contra
+    networks:
+      - my_network
+
+  mariadb:
+    container_name: mariadb-dbt
+    image: mariadb:latest
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_DATABASE=sakila
+      - MYSQL_USER=maolro
+      - MYSQL_PASSWORD=mysql_pwd
+    volumes:
+      - mariadb_data:/var/lib/mysql
+      - ./init_mdb:/docker-entrypoint-initdb.d
+    networks:
+      - my_network
+
+volumes:
+  clickhouse_data:
+  mariadb_data:
+
+networks:
+  my_network:
+    driver: bridge

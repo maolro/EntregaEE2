@@ -1,0 +1,54 @@
+version: 2
+
+sources:
+  - name: adw09_star
+    schema: adw09_star
+    tables:
+      - name: dim_date
+
+models:
+  - name: fct_rentals
+    description: Tabla de hechos
+    columns:
+      - name: rental_skey
+        description: Clave surrogate generada
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_skey
+        description: Clave surrogate del cliente en la dimensión dim_customer
+        tests:
+          - not_null
+
+      - name: film_skey
+        description: Clave surrogate de la película en la dimensión dim_film
+        tests:
+          - not_null
+
+      - name: staff_skey
+        description: Clave surrogate del empleado en la dimensión dim_staff
+        tests:
+          - not_null
+
+      - name: store_skey
+        description: Clave surrogate de la tienda en la dimensión dim_store
+        tests:
+          - not_null
+
+      - name: date_key
+        description: Clave de fecha correspondiente al rental_date, enlazada con dim_date
+        tests:
+          - not_null
+
+      - name: rental_id
+        description: Identificador del alquiler en sakila (opearacional)
+        tests:
+          - not_null
+          - unique
+
+      - name: count_rentals
+        description: Conteo de alquileres
+
+      - name: rental_duration
+        description: Duración del alquiler

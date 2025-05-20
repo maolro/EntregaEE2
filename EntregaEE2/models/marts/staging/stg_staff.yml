@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: stg_staff
+    description: >
+      Modelo de staging para la tabla de empleados (staff) del sistema Sakila. Combina información personal y de localización del empleado mediante joins con las tablas de dirección, ciudad y país.
+
+    columns:
+      - name: staff_skey
+        description: Clave subrogada generada a partir del staff_id.
+
+      - name: staff_id
+        description: Identificador único del empleado.
+
+      - name: staff_first_name
+        description: Nombre del empleado.
+
+      - name: staff_last_name
+        description: Apellido del empleado.
+
+      - name: staff_email
+        description: Correo electrónico del empleado.
+
+      - name: staff_store_id
+        description: Identificador de la tienda en la que trabaja el empleado.
+
+      - name: staff_active
+        description: Indica si el empleado está activo o no.
+
+      - name: staff_last_update
+        description: Fecha de la última actualización de los datos del empleado.

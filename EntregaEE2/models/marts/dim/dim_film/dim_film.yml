@@ -1,0 +1,55 @@
+version: 2
+
+models:
+  - name: dim_film
+    description: Dimensión de películas
+    columns:
+      - name: film_skey
+        description: Clave surrogate de la película generada
+        tests:
+          - not_null
+          - unique
+
+      - name: film_id
+        description: ID de la película en sakila (operacional)
+        tests:
+          - not_null
+
+      - name: film_title
+        description: Título de la película
+
+      - name: film_description
+        description: Descripción de la película
+
+      - name: film_release_year
+        description: Año de lanzamiento de la película
+
+      - name: film_language
+        description: Idioma de la película
+
+      - name: film_original_language
+        description: Idioma original de la película
+
+      - name: film_rental_duration
+        description: Duración del alquiler de la película
+
+      - name: film_rental_rate
+        description: Tarifa de alquiler de la película
+
+      - name: film_duration
+        description: Duración total de la película
+
+      - name: film_replacement_cost
+        description: Costo de reemplazo de la película
+
+      - name: film_rating
+        description: Clasificación por edad de la película
+
+      - name: film_special_features
+        description: Características especiales disponibles para la película
+
+      - name: film_category_name
+        description: Categoría de la película
+
+      - name: film_last_update
+        description: Fecha de la última actualización de los datos de la película

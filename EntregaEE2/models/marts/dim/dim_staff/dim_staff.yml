@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: dim_staff
+    description: Dimensión de empleados
+    columns:
+      - name: staff_skey
+        description: Clave surrogate del empleado generada
+        tests:
+          - not_null
+          - unique
+
+      - name: staff_id
+        description: ID del empleado en sakila (operacional)
+        tests:
+          - not_null
+
+      - name: staff_first_name
+        description: Nombre del empleado
+
+      - name: staff_last_name
+        description: Apellido del empleado
+
+      - name: staff_address
+        description: Dirección del empleado
+
+      - name: staff_district
+        description: Distrito en el que se encuentra el empleado
+
+      - name: staff_postal_code
+        description: Código postal del empleado
+
+      - name: staff_phone_number
+        description: Número de teléfono del empleado
+
+      - name: staff_city
+        description: Ciudad del empleado
+
+      - name: staff_country
+        description: País del empleado
+
+      - name: staff_email
+        description: Correo electrónico del empleado
+
+      - name: store_id
+        description: ID de la tienda a la que pertenece el empleado
+
+      - name: staff_active
+        description: Indicador de si el empleado está activo
+
+      - name: staff_last_update
+        description: Fecha de la última actualización de los datos del empleado

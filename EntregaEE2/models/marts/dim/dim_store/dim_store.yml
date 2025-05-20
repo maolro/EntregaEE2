@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: dim_store
+    description: Dimensión de tiendas
+    columns:
+      - name: store_skey
+        description: Clave surrogate de la tienda generada
+        tests:
+          - not_null
+          - unique
+
+      - name: store_id
+        description: ID de la tienda en sakila (operacional)
+        tests:
+          - not_null
+
+      - name: store_address
+        description: Dirección física de la tienda
+
+      - name: store_district
+        description: Distrito en el que se encuentra la tienda
+
+      - name: store_postal_code
+        description: Código postal de la tienda
+
+      - name: store_phone_number
+        description: Número de teléfono de la tienda
+
+      - name: store_city
+        description: Ciudad en la que se encuentra la tienda
+
+      - name: store_country
+        description: País en el que se encuentra la tienda
+
+      - name: store_manager_staff_id
+        description: ID del empleado que actúa como gerente de la tienda
+
+      - name: store_manager_first_name
+        description: Nombre del gerente de la tienda
+
+      - name: store_manager_last_name
+        description: Apellido del gerente de la tienda
+
+      - name: store_last_update
+        description: Fecha de la última actualización de los datos de la tienda

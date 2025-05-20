@@ -1,0 +1,12 @@
+sak_profile:
+  target: clickhouse
+  outputs:
+    clickhouse:
+      type: clickhouse
+      host: clickhouse     
+      port: 8123          
+      user: usuario_sak  
+      schema: adw09
+      password: "contra"        
+
+      

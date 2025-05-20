@@ -1,0 +1,36 @@
+version: 2
+
+snapshots:
+  - name: dstaff_snapshot
+    description: >
+      Instantánea de la tabla de personal que permite rastrear los cambios a lo largo del tiempo, utilizando la estrategia basada en marcas temporales sobre el campo last_update.
+    config:
+      target_schema: "{{ var('schema_star') }}"
+      unique_key: staff_id
+      strategy: timestamp
+      updated_at: last_update
+
+    columns:
+      - name: staff_id
+        description: Identificador único del miembro del personal.
+        tests:
+          - not_null
+          - unique
+
+      - name: staff_first_name
+        description: Nombre del miembro del personal.
+
+      - name: staff_last_name
+        description: Apellido del miembro del personal.
+
+      - name: staff_email
+        description: Correo electrónico del miembro del personal.
+
+      - name: staff_active
+        description: Indica si el miembro del personal está activo actualmente.
+
+      - name: store_id
+        description: Identificador de la tienda a la que pertenece el miembro del personal.
+
+      - name: staff_last_update
+        description: Fecha y hora de la última actualización del registro.

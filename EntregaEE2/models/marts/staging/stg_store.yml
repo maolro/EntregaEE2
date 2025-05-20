@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: stg_store
+    description: >
+      Modelo de staging para las tiendas del sistema Sakila. Incluye detalles de ubicación de cada tienda 
+      y la información del manager combinando las tablas store, address, city, country y staff.
+
+    columns:
+      - name: store_skey
+        description: Clave subrogada generada a partir del identificador único de la tienda.
+
+      - name: store_id
+        description: Identificador único de la tienda.
+
+      - name: store_address
+        description: Dirección de la tienda.
+
+      - name: store_district
+        description: Distrito en el que se encuentra la tienda.
+
+      - name: store_postal_code
+        description: Código postal de la dirección de la tienda.
+
+      - name: store_phone_number
+        description: Número de teléfono de la tienda.
+
+      - name: store_city
+        description: Ciudad en la que se ubica la tienda.
+
+      - name: store_country
+        description: País correspondiente a la ciudad de la tienda.
+
+      - name: store_manager_staff_id
+        description: Identificador del empleado que actúa como manager de la tienda.
+
+      - name: store_manager_first_name
+        description: Nombre del manager de la tienda.
+
+      - name: store_manager_last_name
+        description: Apellido del manager de la tienda.
+
+      - name: store_last_update
+        description: Fecha de la última actualización de los datos de la tienda.

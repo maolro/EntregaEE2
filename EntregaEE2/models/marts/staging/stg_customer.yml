@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: stg_customer
+    description: >
+      Modelo de staging para los clientes de la base de datos Sakila. Este modelo integra información de las tablas `customer`, `address`, `city` y `country`, transformando y renombrando columnas para facilitar su uso en capas posteriores del modelo en estrella.
+    columns:
+      - name: customer_skey
+        description: Clave subrogada única generada a partir del `customer_id`.
+
+      - name: customer_id
+        description: Identificador único del cliente.
+
+      - name: customer_first_name
+        description: Nombre del cliente.
+
+      - name: customer_last_name
+        description: Apellido del cliente.
+
+      - name: customer_email
+        description: Dirección de correo electrónico del cliente.
+
+      - name: customer_active
+        description: Indicador que señala si el cliente está activo.
+
+      - name: customer_address
+        description: Dirección del cliente, extraída de la tabla de direcciones.
+
+      - name: customer_district
+        description: Distrito o región donde reside el cliente.
+
+      - name: customer_postal_code
+        description: Código postal asociado a la dirección del cliente.
+
+      - name: customer_phone_number
+        description: Número de teléfono del cliente.
+
+      - name: customer_city
+        description: Ciudad en la que reside el cliente.
+
+      - name: customer_country
+        description: País correspondiente a la ciudad del cliente.
+
+      - name: customer_create_date
+        description: Fecha en la que se creó el registro del cliente.
+
+      - name: customer_last_update
+        description: Fecha de la última actualización del registro del cliente.

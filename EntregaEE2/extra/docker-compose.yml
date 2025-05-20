@@ -1,0 +1,52 @@
+services:
+  jupyterlab:
+    image: dockeibe/etsiinf-jupydbt
+    container_name: contenedor-jupyter
+    restart: always
+    ports:
+      - "127.0.0.1:8888:8888"
+    volumes:
+      - ../EntregaEE2_final:/home/jovyan/dbt/workspace
+    environment:
+      - JUPYTER_TOKEN=ele
+    command: start-notebook.sh --NotebookApp.token='contra'
+    user: "1000:1000"
+    networks:
+      - my_network
+
+  mariadb:
+    image: mariadb:latest
+    container_name: contenedor-mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: "contra"
+      MARIADB_USER: "usuario_sak"
+      MARIADB_PASSWORD: "contra"
+    ports:
+      - "127.0.0.1:3307:3306"
+    volumes:
+      - init_mdb:/docker-entrypoint-initdb.d
+      - mariadb_data:/var/lib/mysql
+    networks:
+      - my_network
+
+  clickhouse:
+    image: clickhouse:latest
+    container_name: contenedor-clickhouse
+    restart: always
+    ports:
+      - "127.0.0.1:8124:8123"  # HTTP API
+      - "127.0.0.1:9001:9000"  # Native TCP
+    volumes:
+      - clickhouse_data:/var/lib/clickhouse
+    environment:
+      CLICKHOUSE_USER: "usuario_sak"
+      CLICKHOUSE_PASSWORD: "contra"
+      CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: "1"
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge
+

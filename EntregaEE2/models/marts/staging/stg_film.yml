@@ -1,0 +1,51 @@
+version: 2
+
+models:
+  - name: stg_film
+    description: >
+      Modelo de staging para las películas del sistema Sakila. Combina datos de las tablas film, category, language y film_category, aplicando renombrado de campos y generando una clave subrogada para facilitar su posterior uso.
+    columns:
+      - name: film_skey
+        description: Clave subrogada única generada a partir del identificador de la película.
+
+      - name: film_id
+        description: Identificador único de la película.
+
+      - name: film_title
+        description: Título de la película.
+
+      - name: film_description
+        description: Descripción o sinopsis de la película.
+
+      - name: film_release_year
+        description: Año de estreno de la película.
+
+      - name: film_language
+        description: Idioma principal en el que está disponible la película.
+
+      - name: film_original_language
+        description: Idioma original de la película, si es distinto del principal.
+
+      - name: film_rental_duration
+        description: Duración del alquiler de la película, en días.
+
+      - name: film_rental_rate
+        description: Precio del alquiler de la película.
+
+      - name: film_duration
+        description: Duración total de la película, en minutos.
+
+      - name: film_replacement_cost
+        description: Coste de reemplazo de la película en caso de pérdida.
+
+      - name: film_rating
+        description: Clasificación por edades de la película-
+
+      - name: film_special_features
+        description: Características especiales disponibles en la película -
+
+      - name: film_category_name
+        description: Categoría o género principal de la película.
+
+      - name: film_last_update
+        description: Fecha de la última actualización del registro de la película.
